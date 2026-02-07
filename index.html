@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Goel | AI/GenAI Engineer</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #111111;
+            --text: #e0e0e0;
+            --accent: #ff6200;
+            --accent-dark: #d94f00;
+            --line: #333333;
+        }
+        header h1,
+#about-left h3 {
+    color: var(--accent) !important;   /* forces orange on both */
+}
+
+#intro #about-left h3 {
+    color: #ff6200;     /* or var(--accent) */
+}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+        header {
+            background: linear-gradient(to bottom, #1a1a1a, var(--bg));
+            text-align: center;
+            padding: 80px 20px 40px;
+            border-bottom: 1px solid #222;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            color: white;
+        }
+        section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        /* Intro: About + Photo */
+        #intro {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        #about-left {
+            flex: 1;
+            min-width: 300px;
+        }
+        #about-left h3 {
+            margin: 0 0 20px;
+            font-size: 2.2em;
+            color: white;
+        }
+        #about-left p {
+            font-size: 0.95em;
+            color: #ccc;
+        }
+        #profile-right {
+            flex: 0 0 280px;
+            text-align: center;
+        }
+        #profile-right img {
+            width: 100%;
+            max-width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 30px rgba(255, 98, 0, 0.35);
+        }
+
+        /* Skills - smaller font & tighter padding */
+        #skills .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .skill-tag {
+            background: #222;
+            color: var(--accent);
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.7em;          /* reduced from 0.9em */
+            border: 1px solid #333;
+        }
+
+        /* Education + Experience side-by-side */
+        #edu-experience {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .edu-exp-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        .edu-exp-column h3 {
+            color: var(--accent);
+            margin: 0 0 15px;
+            font-size: 1.6em;
+        }
+        .edu-exp-column h4 {
+            color: white;
+            margin: 25px 0 8px;
+            font-size: 1.3em;
+        }
+        .edu-exp-column p, .edu-exp-column ul {
+            font-size: 0.95em;
+            color: #ccc;
+        }
+        .edu-exp-column ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        .edu-exp-column li {
+            margin-bottom: 8px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--line);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: var(--accent);
+            border: 4px solid var(--bg);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+        .content {
+            padding: 25px;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            border-left: 5px solid var(--accent);
+        }
+        .content h3 {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: 1.5em;
+        }
+        .project-link {
+            color: var(--accent);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        footer {
+            background: #000;
+            color: #888;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 1em;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            #intro, #edu-experience { flex-direction: column; align-items: center; text-align: center; }
+            #profile-right, .edu-exp-column { margin: 0 auto; }
+            .timeline::before { left: 30px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 20px; }
+            .right { left: 0%; }
+            .left::after, .right::after { left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shubham Goel</h1>
+        <h3>AI / Generative AI Engineer | Delhi, India</h3>
+    </header>
+
+    <section id="intro">
+        <div id="about-left">
+            <h3>About Me</h3>
+            <p>AI and Generative AI Engineer with a Master's in Applied Mathematics from NYU, passionate about building intelligent systems that solve real-world challenges. With strong expertise in Python, deep learning frameworks like PyTorch and TensorFlow, and tools such as LangChain, I specialize in fine-tuning LLMs, developing multi-agent pipelines, RAG systems, and automation solutions — from GUI agents and legal AI to sentiment analysis and recommendation engines. Committed to leveraging mathematics, machine learning, and generative technologies to create efficient, scalable, and impactful AI applications.</p>
+        </div>
+
+        <div id="profile-right">
+            <img src="https://drive.google.com/thumbnail?id=1p5-3nLjUt3gp1f1jawV_-joY2Dy5d9xw&sz=w800" alt="Shubham Goel">
+            <p style="margin-top: 12px; font-size: 0.85em; color: #aaa;">
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-tag">Python</div>
+            <div class="skill-tag">C++</div>
+            <div class="skill-tag">PyTorch</div>
+            <div class="skill-tag">TensorFlow</div>
+            <div class="skill-tag">LangChain / LangGraph</div>
+            <div class="skill-tag">LLM Fine-Tuning (LoRA)</div>
+            <div class="skill-tag">Retrieval-Augmented Generation (RAG)</div>
+            <div class="skill-tag">Hybrid Search (Dense + BM25)</div>
+            <div class="skill-tag">InLegalBERT / Custom Embeddings</div>
+            <div class="skill-tag">Computer Vision</div>
+            <div class="skill-tag">Natural Language Processing</div>
+            <div class="skill-tag">Generative AI</div>
+            <div class="skill-tag">Multi-Agent Systems</div>
+            <div class="skill-tag">ChromaDB</div>
+            <div class="skill-tag">Kubernetes</div>
+            <div class="skill-tag">Git</div>
+            <div class="skill-tag">Project Management</div>
+        </div>
+    </section>
+
+    <section id="edu-experience">
+        <div id="edu-experience" class="flex-container">
+            <div class="edu-exp-column">
+                <h3>Education</h3>
+                <h4>New York University, NY, USA</h4>
+                <p>Master of Science, Applied Mathematics<br>Sep 2023 – May 2025</p>
+
+                <h4>Guru Gobind Singh Indraprastha University, New Delhi, India</h4>
+                <p>Bachelor of Technology, Electronics and Communications Engineering<br>Sep 2008 – May 2012</p>
+            </div>
+
+            <div class="edu-exp-column">
+                <h3>Work Experience</h3>
+                <h4>Development Intern (ML), Insurance Samadhan, Noida, India</h4>
+                <p>Jun 2024 – Aug 2024</p>
+                <ul>
+                    <li>Implemented chatbot system for extracting user-specific details from insurance policy documents; designed end-to-end pipeline processing 2.3M+ data points; fine-tuned DistilBERT to 95% accuracy, improving retrieval efficiency by 20%.</li>
+                    <li>Architected TensorFlow-based image processing pipeline using U-Net to remove watermarks; processed 1.2M+ images, reducing data extraction time by 30%.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Project Timeline</h2>
+        <div class="timeline">
+
+            <!-- Most recent first -->
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>AI Legal Paralegal (In Progress)</h3>
+                    <p>5-agent pipeline for Indian legal workflows. Completed Retriever Agent (Hybrid Search: InLegalBERT + BM25). Developing Citation Verification & Shepardizing for overruled judgments.</p>
+                    <p><em>GitHub repo coming soon – follow on LinkedIn for updates!</em></p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>VLM-based GUI Automation on Cloud Environments</h3>
+                    <p>VLM-driven pipeline: 83% success on 236 Google Cloud workflows (≤20 prompts). Created 10k triple dataset. Multi-agent system (planner + executor LLM) with persistent browser.</p>
+                    <a href="https://github.com/ShubhamGoel26/AI_digital_worker" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Time Series Analysis of NYC Temperature Data</h3>
+                    <p>Analyzed 528 monthly records (1970–2013). EDA, seasonal decomposition (0.45°C/decade rise). Compared ARIMA/SARIMA/Prophet; SARIMA selected (RMSE 1.55°C) for 20-year forecasts.</p>
+                    <a href="https://github.com/ShubhamGoel26/Time-Series-Analysis-of-NYC-Climate-Data" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Movie Recommender System</h3>
+                    <p>Used MovieLens + TMDB. SVD (RMSE ~0.85) & TF-IDF models (50% Precision@10). Interactive Plotly visuals + deployed Streamlit web app for instant recommendations.</p>
+                    <a href="https://github.com/ShubhamGoel26/movie-recommender" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Mental Health Sentiment Analysis</h3>
+                    <p>Processed 53k+ social media posts → 20k unique. VADER sentiment (66% accuracy), TF-IDF + LDA topic modeling (5 topics e.g. Depression 23%), chi-square validation. Visualizations: word clouds, heatmaps for insights.</p>
+                    <a href="https://github.com/ShubhamGoel26/Mental-Health-Sentiment-Analysis" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>COVID-19 Data Analysis & Visualization (Jun 2025)</h3>
+                    <p>Developed 10+ advanced SQL queries (joins, CTEs, subqueries) on Our World in Data. Built interactive Tableau dashboards (maps, heatmaps, scatter plots) showing global trends, case growth, policy impacts, and correlations. Hosted on GitHub and Tableau Public.</p>
+                    <a href="https://github.com/ShubhamGoel26/data-analysis/tree/main" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Email: <a href="mailto:goel.shubham26@gmail.com">goel.shubham26@gmail.com</a></p>
+        <p>
+            <a href="https://www.linkedin.com/in/shubham-goel-12056794/" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/ShubhamGoel26" target="_blank">GitHub</a>
+        </p>
+        <p>© 2026 Shubham Goel | AI | ML | Generative AI | Delhi, India</p>
+    </footer>
+</body>
+</html>
